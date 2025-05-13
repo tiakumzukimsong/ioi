@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Screen Image Classifier</title>
+</head>
+<body>
+    <h2>Upload an image to classify</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <input type="submit" value="Upload and Predict">
+    </form>
+
+    {% if image_url %}
+        <h3>Prediction: {{ label }} ({{ confidence | round(2) }}% confidence)</h3>
+        <img src="{{ image_url }}" alt="Uploaded Image" style="max-width: 300px;">
+    {% endif %}
+</body>
+</html>
